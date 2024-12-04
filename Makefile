@@ -1,0 +1,34 @@
+# Variables
+CC = cc
+NAME = fract-ol
+CFLAGS = -Wall -Wextra -Werror
+42LIB = libmlx42.a
+INCLUDE = -Iinclude
+GLFW_LIB = -lglfw
+GLEW_PATH = -L"/Users/$(USER)/.brew/opt/glfw/lib/"
+SRC = main.c
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+
+# Rules
+all: $(NAME)
+	@echo "\033[0;32m$(NAME) built successfully!\033[0m"
+
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(42LIB) $(INCLUDE) $(GLFW_LIB) $(GLFW_PATH)
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+clean:
+	@rm -rf $(OBJ_DIR)
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
