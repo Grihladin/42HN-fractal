@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 22:09:54 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/04 23:08:20 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ typedef struct s_fractal
 	double		z_imag;
 	double		c_real;
 	double		c_imag;
-	int *histogram;   // Array to store iteration counts
-	int *hues;        // Array for normalized hue values
-	int total_pixels; // Total pixels outside set
 }				t_fractal;
 
 typedef struct s_draw_lib
@@ -56,9 +53,5 @@ t_draw_lib		make_a_picture(void);
 t_fractal		mandelbrot_init(void);
 void			draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v);
 void			print_mandelbrot(t_draw_lib draw_vars, t_fractal v);
-
-// histogram functions
-void			build_histogram(t_fractal *f, mlx_image_t *img);
-uint32_t		get_histogram_color(t_fractal *f, int iterations);
 
 #endif
