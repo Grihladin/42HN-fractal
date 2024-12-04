@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 20:51:37 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 23:58:11 by mratke           ###   ########.fr       */
+/*   Created: 2024/12/04 23:37:39 by mratke            #+#    #+#             */
+/*   Updated: 2024/12/05 00:30:35 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fractol.h"
 
-t_fractal	mandelbrot_init(void)
+t_fractal	julia_init(void)
 {
 	t_fractal	var;
 
@@ -22,19 +22,18 @@ t_fractal	mandelbrot_init(void)
 	var.z_real = 0;
 	var.z_imag = 0;
 	var.c_real = 0;
-	var.c_imag = 0;
+	var.c_imag = 0.8;
 	return (var);
 }
-
-void	draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v)
+void	draw_julia_pixel(t_draw_lib draw_v, t_fractal v)
 {
 	int			i;
 	double		tmp;
 	uint32_t	coulor;
 	int			normalised_i;
 
-	v.z_real = 0;
-	v.z_imag = 0;
+	v.z_real = (v.x - WIDTH / 2.0) * 4.0 / WIDTH;
+	v.z_imag = (v.y - HEIGHT / 2.0) * 4.0 / HEIGHT;
 	i = 0;
 	while (i < v.max_i && (v.z_real * v.z_real + v.z_imag * v.z_imag) < 4)
 	{
@@ -51,15 +50,13 @@ void	draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v)
 	mlx_put_pixel(draw_v.image, v.x, v.y, coulor);
 }
 
-void	print_mandelbrot(t_draw_lib draw_vars, t_fractal v)
+void	print_julia(t_draw_lib draw_vars, t_fractal v)
 {
 	while (v.y < HEIGHT)
 	{
 		while (v.x < WIDTH)
 		{
-			v.c_real = (v.x - WIDTH / 2.0) * 4.0 / WIDTH;
-			v.c_imag = (v.y - HEIGHT / 2.0) * 4.0 / HEIGHT;
-			draw_mandelbrot_pixel(draw_vars, v);
+			draw_julia_pixel(draw_vars, v);
 			v.x++;
 		}
 		v.x = 0;

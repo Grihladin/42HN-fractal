@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 23:20:29 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/05 00:16:43 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(void)
 	t_fractal	fractal;
 
 	mlx_vars = make_a_picture();
-	fractal = mandelbrot_init();
-	print_mandelbrot(mlx_vars, fractal);
+	fractal = julia_init();
+	print_julia(mlx_vars, fractal);
 	if (mlx_image_to_window(mlx_vars.mlx, mlx_vars.image, 0, 0) == -1)
 	{
 		mlx_close_window(mlx_vars.mlx);
