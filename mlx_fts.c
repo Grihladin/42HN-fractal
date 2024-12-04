@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 20:50:42 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/04 23:19:52 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ t_draw_lib	make_a_picture(void)
 	var.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
 	if (!var.mlx)
 	{
-		puts(mlx_strerror(mlx_errno));
+		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 	}
 	var.image = mlx_new_image(var.mlx, WIDTH, HEIGHT);
 	if (!var.image)
 	{
 		mlx_close_window(var.mlx);
-		puts(mlx_strerror(mlx_errno));
+		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 	}
 	return (var);
 }

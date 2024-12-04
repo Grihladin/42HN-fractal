@@ -6,13 +6,14 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 23:08:20 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/04 23:29:16 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include "../ft_printf/ft_printf.h"
 # include "MLX42.h"
 # include <math.h>
 # include <stdbool.h>
