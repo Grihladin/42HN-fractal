@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 19:55:34 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/04 19:57:12 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ t_fractol	mandelbrot_init(void)
 	var.x = 0;
 	var.y = 0;
 	var.max_i = 100;
-	var.real = 0;
-	var.imaginary = 0;
 	var.z_real = 0;
 	var.z_imag = 0;
 	var.c_real = 0;

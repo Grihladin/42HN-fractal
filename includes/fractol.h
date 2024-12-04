@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 19:34:39 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/04 19:57:02 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ typedef struct s_fractol
 	int			x;
 	int			y;
 	int			max_i;
-	double		real;
-	double		imaginary;
 	double		z_real;
 	double		z_imag;
 	double		c_real;
