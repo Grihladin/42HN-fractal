@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 23:19:52 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/05 00:50:29 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,15 @@ t_draw_lib	make_a_picture(void)
 		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 	}
 	return (var);
+}
+
+void	ft_hook(void *param)
+{
+	mlx_t	*mlx;
+
+	mlx = param;
+	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+	{
+		mlx_close_window(mlx);
+	}
 }

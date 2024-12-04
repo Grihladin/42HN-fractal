@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/05 00:16:43 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/05 00:52:37 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(void)
 		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 		return (EXIT_FAILURE);
 	}
+	mlx_loop_hook(mlx_vars.mlx, ft_hook, mlx_vars.mlx);
 	mlx_loop(mlx_vars.mlx);
 	mlx_terminate(mlx_vars.mlx);
 	return (EXIT_SUCCESS);
