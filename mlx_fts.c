@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_fts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/04 21:03:18 by mratke           ###   ########.fr       */
+/*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
+/*   Updated: 2024/12/04 20:50:42 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fractol.h"
 
-int	main(void)
+t_draw_lib	make_a_picture(void)
 {
-	t_draw_lib	mlx_vars;
-	t_fractal	fractal;
+	t_draw_lib	var;
 
-	mlx_vars = make_a_picture();
-	fractal = mandelbrot_init();
-	print_mandelbrot(mlx_vars, fractal);
-	if (mlx_image_to_window(mlx_vars.mlx, mlx_vars.image, 0, 0) == -1)
+	var.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
+	if (!var.mlx)
 	{
-		mlx_close_window(mlx_vars.mlx);
 		puts(mlx_strerror(mlx_errno));
-		return (EXIT_FAILURE);
 	}
-	mlx_loop(mlx_vars.mlx);
-	mlx_terminate(mlx_vars.mlx);
-	return (EXIT_SUCCESS);
+	var.image = mlx_new_image(var.mlx, WIDTH, HEIGHT);
+	if (!var.image)
+	{
+		mlx_close_window(var.mlx);
+		puts(mlx_strerror(mlx_errno));
+	}
+	return (var);
 }
