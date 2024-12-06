@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/05 00:50:29 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:26:40 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,22 @@ void	ft_hook(void *param)
 
 	mlx = param;
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-	{
 		mlx_close_window(mlx);
+}
+
+void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
+{
+	double	xxx;
+
+	xxx = x_delta;
+	if (y_delta > 0)
+	{
+		f->zoom *= 1.2;
+		ft_printf("zoom in");
+	}
+	else if (y_delta < 0)
+	{
+		f->zoom *= 0.8;
+		ft_printf("zoom out");
 	}
 }

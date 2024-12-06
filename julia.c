@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:37:39 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/05 00:42:01 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:29:29 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ t_fractal	julia_init(void)
 	var.z_imag = 0;
 	var.c_real = -0.835;
 	var.c_imag = -0.321;
+	var.zoom = 1;
 	return (var);
 }
+
 void	draw_julia_pixel(t_draw_lib draw_v, t_fractal v)
 {
 	int			i;
@@ -32,8 +34,8 @@ void	draw_julia_pixel(t_draw_lib draw_v, t_fractal v)
 	uint32_t	coulor;
 	int			normalised_i;
 
-	v.z_real = (v.x - WIDTH / 2.0) * 4.0 / WIDTH;
-	v.z_imag = (v.y - HEIGHT / 2.0) * 4.0 / HEIGHT;
+	v.z_real = (v.x - WIDTH / 2.0) * 4.0 / (WIDTH * v.zoom) + v.x_center;
+	v.z_imag = (v.y - HEIGHT / 2.0) * 4.0 / (HEIGHT * v.zoom) + v.y_center;
 	i = 0;
 	while (i < v.max_i && (v.z_real * v.z_real + v.z_imag * v.z_imag) < 4)
 	{

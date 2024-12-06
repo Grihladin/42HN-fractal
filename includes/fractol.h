@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/05 00:50:05 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:27:08 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_fractal
 	double		z_imag;
 	double		c_real;
 	double		c_imag;
+	double		zoom;
+	double		x_center;
+	double		y_center;
 }				t_fractal;
 
 typedef struct s_draw_lib
@@ -60,5 +63,6 @@ void			print_mandelbrot(t_draw_lib draw_vars, t_fractal v);
 t_fractal		julia_init(void);
 void			draw_julia_pixel(t_draw_lib draw_v, t_fractal v);
 void			print_julia(t_draw_lib draw_vars, t_fractal v);
-
+void			scroll_callback_ft(double x_delta, double y_delta,
+					t_fractal *f);
 #endif
