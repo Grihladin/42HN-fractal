@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:40:48 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:50:56 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 typedef struct s_fractal
 {
+	int			f_name;
 	int			x;
 	int			y;
 	int			max_i;
@@ -52,9 +53,9 @@ void			ft_hook(void *param);
 
 // mandelbrot
 
-// t_fractal		mandelbrot_init(void);
-// void			draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v);
-// void			print_mandelbrot(t_draw_lib draw_vars, t_fractal v);
+t_fractal		mandelbrot_init(void);
+void			draw_mandelbrot_pixel(t_fractal v);
+void			print_mandelbrot(t_fractal v);
 // // juia
 t_fractal		julia_init(void);
 void			draw_julia_pixel(t_fractal v);

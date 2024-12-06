@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:37:39 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:37:43 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:50:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_fractal	julia_init(void)
 	var.c_real = -0.835;
 	var.c_imag = -0.321;
 	var.zoom = 1;
+	var.f_name = 1;
 	return (var);
 }
 

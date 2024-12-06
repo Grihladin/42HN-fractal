@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:43:27 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:52:13 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
 		f->zoom *= 0.8;
 		ft_printf("zoom out");
 	}
-	print_julia(*f);
+	if (f->f_name == 1)
+		print_julia(*f);
+	else
+		print_mandelbrot(*f);
 }
