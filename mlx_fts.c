@@ -6,28 +6,26 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:26:40 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:43:27 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fractol.h"
 
-t_draw_lib	make_a_picture(void)
+t_fractal	make_a_picture(t_fractal f)
 {
-	t_draw_lib	var;
-
-	var.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
-	if (!var.mlx)
+	f.mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
+	if (!f.mlx)
 	{
 		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 	}
-	var.image = mlx_new_image(var.mlx, WIDTH, HEIGHT);
-	if (!var.image)
+	f.image = mlx_new_image(f.mlx, WIDTH, HEIGHT);
+	if (!f.image)
 	{
-		mlx_close_window(var.mlx);
+		mlx_close_window(f.mlx);
 		ft_printf("%s\n", (mlx_strerror(mlx_errno)));
 	}
-	return (var);
+	return (f);
 }
 
 void	ft_hook(void *param)
@@ -54,4 +52,5 @@ void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
 		f->zoom *= 0.8;
 		ft_printf("zoom out");
 	}
+	print_julia(*f);
 }

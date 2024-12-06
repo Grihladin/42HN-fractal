@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:27:08 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/06 23:40:48 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,9 @@ typedef struct s_fractal
 	double		zoom;
 	double		x_center;
 	double		y_center;
-}				t_fractal;
-
-typedef struct s_draw_lib
-{
 	mlx_t		*mlx;
 	mlx_image_t	*image;
-}				t_draw_lib;
+}				t_fractal;
 
 typedef struct s_rgb
 {
@@ -51,18 +47,18 @@ typedef struct s_rgb
 }				t_rgb;
 
 // mlx_functions
-t_draw_lib		make_a_picture(void);
+t_fractal		make_a_picture(t_fractal f);
 void			ft_hook(void *param);
 
 // mandelbrot
 
-t_fractal		mandelbrot_init(void);
-void			draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v);
-void			print_mandelbrot(t_draw_lib draw_vars, t_fractal v);
-// juia
+// t_fractal		mandelbrot_init(void);
+// void			draw_mandelbrot_pixel(t_draw_lib draw_v, t_fractal v);
+// void			print_mandelbrot(t_draw_lib draw_vars, t_fractal v);
+// // juia
 t_fractal		julia_init(void);
-void			draw_julia_pixel(t_draw_lib draw_v, t_fractal v);
-void			print_julia(t_draw_lib draw_vars, t_fractal v);
+void			draw_julia_pixel(t_fractal v);
+void			print_julia(t_fractal v);
 void			scroll_callback_ft(double x_delta, double y_delta,
 					t_fractal *f);
 #endif
