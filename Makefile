@@ -11,7 +11,9 @@ GLEW_PATH = -L"/Users/$(USER)/.brew/opt/glfw/lib/"
 SRC = main.c \
 	mlx_fts.c \
 	mandelbrot.c \
-	julia.c
+	julia.c \
+	get_next_line_utils.c \
+	get_next_line.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 

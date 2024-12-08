@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/06 23:50:56 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/08 20:12:54 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../ft_printf/ft_printf.h"
 # include "MLX42.h"
+# include "get_next_line.h"
 # include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -50,6 +51,9 @@ typedef struct s_rgb
 // mlx_functions
 t_fractal		make_a_picture(t_fractal f);
 void			ft_hook(void *param);
+t_fractal		get_input(char **argv, t_fractal f);
+void			draw_picture(void);
+double			ft_atoi(const char *str);
 
 // mandelbrot
 

@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"__locale": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"fractol.h": "c",
+		"get_next_line.h": "c"
 	}
 }
