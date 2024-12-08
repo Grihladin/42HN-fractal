@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 20:17:12 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/08 20:36:53 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,10 @@ t_fractal	get_input(char **argv, t_fractal f)
 {
 	if (argv[1][0] == '1')
 	{
-		f.f_name = 1;
-		f.c_real = -0.8;
-		f.c_imag = 0.156;
-		f = julia_init();
+		f = julia_init(argv);
 	}
 	else if (argv[1][0] == '2')
 	{
-		f.f_name = 2;
 		f = mandelbrot_init();
 	}
 	return (f);
@@ -98,15 +94,11 @@ double	ft_atoi(const char *str)
 	result = 0;
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-	{
 		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			sign = -1.0;
-		}
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')

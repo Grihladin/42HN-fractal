@@ -6,13 +6,13 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:37:39 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 20:13:21 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/08 20:35:15 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fractol.h"
 
-t_fractal	julia_init(void)
+t_fractal	julia_init(char **argv)
 {
 	t_fractal	var;
 
@@ -21,6 +21,8 @@ t_fractal	julia_init(void)
 	var.max_i = 500;
 	var.z_real = 0;
 	var.z_imag = 0;
+	var.c_real = ft_atoi(argv[2]);
+	var.c_imag = ft_atoi(argv[3]);
 	var.zoom = 1;
 	var.f_name = 1;
 	return (var);

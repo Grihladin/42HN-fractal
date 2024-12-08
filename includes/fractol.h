@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 20:12:54 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/08 20:32:06 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_fractal		mandelbrot_init(void);
 void			draw_mandelbrot_pixel(t_fractal v);
 void			print_mandelbrot(t_fractal v);
 // // juia
-t_fractal		julia_init(void);
+t_fractal		julia_init(char **argv);
 void			draw_julia_pixel(t_fractal v);
 void			print_julia(t_fractal v);
 void			scroll_callback_ft(double x_delta, double y_delta,
