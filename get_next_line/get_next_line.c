@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:34:23 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 17:27:59 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:54:26 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fractol.h"
+#include "../includes/fractol.h"
 
 char	*read_and_merge(int fd, char *current_line)
 {

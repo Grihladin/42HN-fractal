@@ -12,16 +12,20 @@ AVLABLE FRACTALS:
 JULIA
 -----------------------------------------------
 If you want to draw it with your own parametr:
-Enter "1", then 2 parametrs separated by space.
+Enter "1", then 2 parametrs(double numbers) separated by space.
 
-Or you can use my presets:
-
+Or you can use my presets, enter its number.
+Avalable presets:
+"2" Octopus
+"3" Medusa
+"4" Snowflake
+"5" Galaxy
 -----------------------------------------------
 
 
 MANDELBROT
 -----------------------------------------------
-                    Enter "2"
+                    Enter "6"
 -----------------------------------------------
 
 ===========================================================================

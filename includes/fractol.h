@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 20:32:06 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 18:08:00 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 typedef struct s_fractal
 {
-	int			f_name;
+	int			name;
 	int			x;
 	int			y;
 	int			max_i;
@@ -49,21 +49,36 @@ typedef struct s_rgb
 }				t_rgb;
 
 // mlx_functions
+
 t_fractal		make_a_picture(t_fractal f);
-void			ft_hook(void *param);
+void			esc_hook(void *param);
+void			scroll_callback_ft(double x_delta, double y_delta,
+					t_fractal *f);
+
+// utils
+
+void			welcome_page(void);
+double			ft_atoi_double(const char *str);
 t_fractal		get_input(char **argv, t_fractal f);
-void			draw_picture(void);
-double			ft_atoi(const char *str);
+void			print_fractal(t_fractal f);
+int				validate_input(int argc, char **argv);
+
+// presets
+
+t_fractal		octopus_init(void);
+t_fractal		medusa_init(void);
+t_fractal		snowflake_init(void);
+t_fractal		galaxy_init(void);
 
 // mandelbrot
 
 t_fractal		mandelbrot_init(void);
 void			draw_mandelbrot_pixel(t_fractal v);
 void			print_mandelbrot(t_fractal v);
-// // juia
+
+// juia
+
 t_fractal		julia_init(char **argv);
 void			draw_julia_pixel(t_fractal v);
 void			print_julia(t_fractal v);
-void			scroll_callback_ft(double x_delta, double y_delta,
-					t_fractal *f);
 #endif

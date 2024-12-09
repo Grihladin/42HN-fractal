@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:34:28 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 17:27:56 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 16:54:21 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fractol.h"
+#include "../includes/fractol.h"
 
 int	is_in_str(char *s, char c)
 {

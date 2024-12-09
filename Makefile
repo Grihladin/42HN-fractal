@@ -2,19 +2,23 @@
 CC = cc
 NAME = fract-ol
 CFLAGS = -Wall -Wextra -Werror
+INCLUDE = -Iinclude
 FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
 42LIB = libmlx42.a
-INCLUDE = -Iinclude
 GLFW_LIB = -lglfw
-GLEW_PATH = -L"/Users/$(USER)/.brew/opt/glfw/lib/"
-SRC = main.c \
-	mlx_fts.c \
-	mandelbrot.c \
-	julia.c \
-	get_next_line_utils.c \
-	get_next_line.c
-OBJ_DIR = obj
+GET_NEXT_LINE_DIR = get_next_line
+SRC_DIR = source
+SRC = $(SRC_DIR)/main.c \
+	$(SRC_DIR)/mlx_fts.c \
+	$(SRC_DIR)/mandelbrot.c \
+	$(SRC_DIR)/julia.c \
+	$(SRC_DIR)/utils.c \
+	$(SRC_DIR)/input_validathion.c \
+	$(SRC_DIR)/presets.c \
+	$(GET_NEXT_LINE_DIR)/get_next_line_utils.c \
+	$(GET_NEXT_LINE_DIR)/get_next_line.c
+OBJ_DIR = objects
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Rules
@@ -22,9 +26,10 @@ all: $(NAME)
 	@echo "\033[0;32m$(NAME) built successfully!\033[0m"
 
 $(NAME): $(OBJ) $(FT_PRINTF)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(42LIB) $(INCLUDE) $(GLFW_LIB) $(GLFW_PATH)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(42LIB) $(INCLUDE) $(GLFW_LIB)
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):

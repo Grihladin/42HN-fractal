@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/08 20:36:53 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 17:45:52 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fractol.h"
+#include "../includes/fractol.h"
 
 t_fractal	make_a_picture(t_fractal f)
 {
@@ -28,7 +28,7 @@ t_fractal	make_a_picture(t_fractal f)
 	return (f);
 }
 
-void	ft_hook(void *param)
+void	esc_hook(void *param)
 {
 	mlx_t	*mlx;
 
@@ -50,71 +50,8 @@ void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
 	{
 		f->zoom *= 0.8;
 	}
-	if (f->f_name == 1)
-		print_julia(*f);
-	else if (f->f_name == 2)
+	if (f->name == 6)
 		print_mandelbrot(*f);
-}
-
-t_fractal	get_input(char **argv, t_fractal f)
-{
-	if (argv[1][0] == '1')
-	{
-		f = julia_init(argv);
-	}
-	else if (argv[1][0] == '2')
-	{
-		f = mandelbrot_init();
-	}
-	return (f);
-}
-void	draw_picture(void)
-{
-	int		fd;
-	char	*line;
-
-	line = ft_strdup("\n");
-	fd = open("picture", 0);
-	while (line != NULL)
-	{
-		ft_printf("%s", line);
-		line = get_next_line(fd);
-		free(line);
-	}
-}
-double	ft_atoi(const char *str)
-{
-	size_t	i;
-	double	sign;
-	double	result;
-	double	divisor;
-
-	divisor = 10.0;
-	sign = 1;
-	result = 0;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1.0;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10.0) + (str[i] - '0');
-		i++;
-	}
-	if (str[i] == '.')
-	{
-		i++;
-		while (str[i] >= '0' && str[i] <= '9')
-		{
-			result += (str[i] - '0') / divisor;
-			divisor *= 10.0;
-			i++;
-		}
-	}
-	return (result * sign);
+	else
+		print_julia(*f);
 }
