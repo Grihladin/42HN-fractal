@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 19:34:34 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 18:08:00 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:42:52 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ typedef struct s_fractal
 	mlx_image_t	*image;
 }				t_fractal;
 
-typedef struct s_rgb
+typedef struct s_atoi
 {
-	int			red;
-	int			green;
-	int			blue;
-}				t_rgb;
+	size_t		i;
+	double		sign;
+	double		result;
+	double		divisor;
+}				t_atoi;
 
 // mlx_functions
 
@@ -58,10 +59,11 @@ void			scroll_callback_ft(double x_delta, double y_delta,
 // utils
 
 void			welcome_page(void);
-double			ft_atoi_double(const char *str);
+double			ft_atoi_double(const char *str, t_atoi v);
 t_fractal		get_input(char **argv, t_fractal f);
 void			print_fractal(t_fractal f);
 int				validate_input(int argc, char **argv);
+t_atoi			init_atoi_v(void);
 
 // presets
 

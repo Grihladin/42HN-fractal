@@ -6,47 +6,49 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:08:04 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 18:52:15 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:43:57 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-double	ft_atoi_double(const char *str)
+t_atoi	init_atoi_v(void)
 {
-	size_t	i;
-	double	sign;
-	double	result;
-	double	divisor;
+	t_atoi	res;
 
-	divisor = 10.0;
-	sign = 1;
-	result = 0;
-	i = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	res.i = 0;
+	res.sign = 1.0;
+	res.divisor = 10.0;
+	res.result = 0;
+	return (res);
+}
+
+double	ft_atoi_double(const char *str, t_atoi v)
+{
+	while ((str[v.i] >= 9 && str[v.i] <= 13) || str[v.i] == 32)
+		v.i++;
+	if (str[v.i] == '-' || str[v.i] == '+')
 	{
-		if (str[i] == '-')
-			sign = -1.0;
-		i++;
+		if (str[v.i] == '-')
+			v.sign = -1.0;
+		v.i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[v.i] >= '0' && str[v.i] <= '9')
 	{
-		result = (result * 10.0) + (str[i] - '0');
-		i++;
+		v.result = (v.result * 10.0) + (str[v.i] - '0');
+		v.i++;
 	}
-	if (str[i] == '.')
+	if (str[v.i] == '.')
 	{
-		i++;
-		while (str[i] >= '0' && str[i] <= '9')
+		v.i++;
+		while (str[v.i] >= '0' && str[v.i] <= '9')
 		{
-			result += (str[i] - '0') / divisor;
-			divisor *= 10.0;
-			i++;
+			v.result += (str[v.i] - '0') / v.divisor;
+			v.divisor *= 10.0;
+			v.i++;
 		}
 	}
-	return (result * sign);
+	return (v.result * v.sign);
 }
 
 t_fractal	get_input(char **argv, t_fractal f)

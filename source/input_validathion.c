@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:33:16 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 19:27:06 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:44:55 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
+
 static int	check_for_notnum(char **argv)
 {
 	int	i;

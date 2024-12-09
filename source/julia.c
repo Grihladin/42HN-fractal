@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 23:37:39 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 18:54:49 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/09 19:43:29 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_fractal	julia_init(char **argv)
 	var.max_i = 70;
 	var.z_real = 0;
 	var.z_imag = 0;
-	var.c_real = ft_atoi_double(argv[2]);
-	var.c_imag = ft_atoi_double(argv[3]);
+	var.c_real = ft_atoi_double(argv[2], init_atoi_v());
+	var.c_imag = ft_atoi_double(argv[3], init_atoi_v());
 	var.zoom = 1;
 	var.name = 1;
 	return (var);
