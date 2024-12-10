@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/10 20:20:54 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/10 21:36:14 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	welcome_page();
 	if (validate_input(argc, argv) == 0)
 	{
-		ft_printf("INVALID INPUT\n");
+		ft_printf("\nINVALID INPUT\n");
 		return (1);
 	}
 	fractal = get_input(argv, fractal);

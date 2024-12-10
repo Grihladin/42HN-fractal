@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:08:04 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 19:43:57 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/10 21:28:11 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,22 @@ void	welcome_page(void)
 {
 	int		fd;
 	char	*line;
+	int		i;
 
-	line = ft_strdup("\n");
-	fd = open("picture", 0);
-	while (line != NULL)
+	i = 0;
+	fd = open("picture.c", 0);
+	while (i < 12)
 	{
-		ft_printf("%s", line);
 		line = get_next_line(fd);
 		free(line);
+		i++;
 	}
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		ft_printf("%s", line + 2);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
 }
