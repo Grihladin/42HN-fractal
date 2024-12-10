@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 17:45:52 by mratke           ###   ########.fr       */
+/*   Updated: 2024/12/10 20:48:56 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,22 @@ void	esc_hook(void *param)
 
 void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
 {
-	double	xxx;
+	double	x;
+	double	current_time;
+	double	time_left;
 
-	xxx = x_delta;
+	current_time = mlx_get_time();
+	time_left = 0;
+	if ((current_time - time_left) < 0.7)
+		return ;
+	time_left = current_time;
+	x = x_delta;
+	if (x == -10000000)
+		return ;
 	if (y_delta > 0)
-	{
 		f->zoom *= 1.2;
-	}
 	else if (y_delta < 0)
-	{
 		f->zoom *= 0.8;
-	}
 	if (f->name == 6)
 		print_mandelbrot(*f);
 	else
