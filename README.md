@@ -89,7 +89,7 @@ fract-ol/
 ├── 📁 MLX42/                    # Graphics library (submodule)
 ├── 📁 objects/                  # Compiled object files
 ├── Makefile                     # Optimized build system
-└── README.md                    # This file
+└── README.md                    # Project documentation
 ```
 
 ---
