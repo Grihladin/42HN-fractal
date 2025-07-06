@@ -29,7 +29,15 @@ OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Rules
-all: $(NAME)
+all: init_submodules $(NAME)
+
+# Initialize submodules if they're not already initialized
+init_submodules:
+	@if [ ! -f $(FT_PRINTF_DIR)/ft_printf.h ] || [ ! -f $(GET_NEXT_LINE_DIR)/get_next_line.h ] || [ ! -d $(MLX42_DIR)/include ]; then \
+		echo "🔄 Initializing submodules..."; \
+		git submodule update --init --recursive; \
+		echo "✅ Submodules initialized!"; \
+	fi
 
 # Default rule
 $(NAME): $(OBJ) $(FT_PRINTF) $(MLX42_LIB)
@@ -68,13 +76,13 @@ endif
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@$(MAKE) -C $(FT_PRINTF_DIR) clean
+	@if [ -d $(FT_PRINTF_DIR) ]; then $(MAKE) -C $(FT_PRINTF_DIR) clean; fi
 	@rm -rf $(MLX42_DIR)/build
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) -C $(FT_PRINTF_DIR) fclean
+	@if [ -d $(FT_PRINTF_DIR) ]; then $(MAKE) -C $(FT_PRINTF_DIR) fclean; fi
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re init_submodules
