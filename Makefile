@@ -2,7 +2,7 @@
 CC = cc
 NAME = fract-ol
 
-CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto -funroll-loops -pthread
+CFLAGS = -Wall -Wextra -Werror -O3 -march=native -ffast-math -flto -funroll-loops -pthread
 INCLUDE = -Iinc -IMLX42/include -Ift_printf_submodule/inc -Iget_next_line_submodule/inc
 FT_PRINTF_DIR = ft_printf_submodule
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
