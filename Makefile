@@ -2,11 +2,12 @@
 CC = cc
 NAME = fract-ol
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -Iinclude
+INCLUDE = -Iinclude -IMLX42/include
 FT_PRINTF_DIR = printf
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
-42LIB = libmlx42.a
-GLFW_LIB = -lglfw
+MLX42_DIR = MLX42
+MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
+GLFW_LIB = -lglfw -L"/opt/homebrew/opt/glfw/lib/"
 GET_NEXT_LINE_DIR = get_next_line
 SRC_DIR = source
 SRC = $(SRC_DIR)/main.c \
@@ -25,12 +26,12 @@ OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 	@echo "\033[0;32m$(NAME) built successfully!\033[0m"
 
-$(NAME): $(OBJ) $(FT_PRINTF)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(42LIB) $(INCLUDE) $(GLFW_LIB)
+$(NAME): $(OBJ) $(FT_PRINTF) $(MLX42_LIB)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(MLX42_LIB) $(INCLUDE) $(GLFW_LIB) -framework Cocoa -framework OpenGL -framework IOKit
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -38,9 +39,14 @@ $(OBJ_DIR):
 $(FT_PRINTF):
 	@$(MAKE) -C $(FT_PRINTF_DIR)
 
+$(MLX42_LIB):
+	@echo "Building MLX42..."
+	@cd $(MLX42_DIR) && cmake -B build && cmake --build build --parallel
+
 clean:
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(FT_PRINTF_DIR) clean
+	@rm -rf $(MLX42_DIR)/build
 
 fclean: clean
 	@rm -f $(NAME)

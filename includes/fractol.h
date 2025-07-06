@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include "../printf/ft_printf.h"
-# include "MLX42.h"
+# include "MLX42/MLX42.h"
 # include "get_next_line.h"
 # include <math.h>
 # include <stdbool.h>
