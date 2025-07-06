@@ -40,6 +40,9 @@ fract-ol([42Heilbronn](https://www.42heilbronn.de/en/) project) - high performan
 - **GLFW** - Window management and input handling
 - **CMake** - Build system for MLX42
 - **MLX42** - Graphics library (included as submodule)
+- **ft_printf (my version)** - Custom printf implementation (included as submodule)
+- **get_next_line (my version)** - File reading utilities (included as submodule)
+
 
 ### Installation & Usage
 ```bash
