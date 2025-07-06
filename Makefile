@@ -3,7 +3,7 @@ CC = cc
 NAME = fract-ol
 
 CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto -funroll-loops -pthread
-INCLUDE = -Iinc -IMLX42/include -Ift_printf_submodule -Iget_next_line_submodule
+INCLUDE = -Iinc -IMLX42/include -Ift_printf_submodule/inc -Iget_next_line_submodule/inc
 FT_PRINTF_DIR = ft_printf_submodule
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
 MLX42_DIR = MLX42
@@ -23,8 +23,8 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/utils.c \
 	$(SRC_DIR)/input_validathion.c \
 	$(SRC_DIR)/presets.c \
-	$(GET_NEXT_LINE_DIR)/get_next_line_utils.c \
-	$(GET_NEXT_LINE_DIR)/get_next_line.c
+	$(GET_NEXT_LINE_DIR)/src/get_next_line_utils.c \
+	$(GET_NEXT_LINE_DIR)/src/get_next_line.c
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
@@ -33,7 +33,7 @@ all: init_submodules $(NAME)
 
 # Initialize submodules if they're not already initialized
 init_submodules:
-	@if [ ! -f $(FT_PRINTF_DIR)/ft_printf.h ] || [ ! -f $(GET_NEXT_LINE_DIR)/get_next_line.h ] || [ ! -d $(MLX42_DIR)/include ]; then \
+	@if [ ! -f $(FT_PRINTF_DIR)/inc/ft_printf.h ] || [ ! -f $(GET_NEXT_LINE_DIR)/inc/get_next_line.h ] || [ ! -d $(MLX42_DIR)/include ]; then \
 		echo "🔄 Initializing submodules..."; \
 		git submodule update --init --recursive; \
 		echo "✅ Submodules initialized!"; \
