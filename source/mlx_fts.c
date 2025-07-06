@@ -6,7 +6,7 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:50:11 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/10 21:29:47 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 07:35:47 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,18 @@ void	scroll_callback_ft(double x_delta, double y_delta, t_fractal *f)
 
 	current_time = mlx_get_time();
 	time_left = 0;
-	if ((current_time - time_left) < 0.3)
+	// Reduced cooldown time for more responsive zooming
+	if ((current_time - time_left) < 0.1)
 		return ;
 	time_left = current_time;
 	x = x_delta;
 	if (x == -10000000)
 		return ;
 	if (y_delta > 0)
-		f->zoom *= 1.2;
+		f->zoom *= ZOOM_FACTOR;
 	else if (y_delta < 0)
-		f->zoom *= 0.8;
+		f->zoom /= ZOOM_FACTOR;
+	
 	if (f->name == 6)
 		print_mandelbrot(*f);
 	else

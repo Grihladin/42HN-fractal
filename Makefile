@@ -1,7 +1,7 @@
 # Variables
 CC = cc
 NAME = fract-ol
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto -funroll-loops -pthread
 INCLUDE = -Iinclude -IMLX42/include -Ift_printf_submodule -Iget_next_line_submodule
 FT_PRINTF_DIR = ft_printf_submodule
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
@@ -65,7 +65,7 @@ $(FT_PRINTF):
 
 $(MLX42_LIB): check-and-install-deps
 	@echo "🔨 Building MLX42..."
-	@cd $(MLX42_DIR) && cmake -B build && cmake --build build --parallel
+	@cd $(MLX42_DIR) && cmake -B build && cmake --build build
 
 clean:
 	rm -rf $(OBJ_DIR)
