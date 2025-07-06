@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:24:41 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 17:53:48 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 09:10:27 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../inc/fractol.h"
 
 t_fractal	octopus_init(void)
 {

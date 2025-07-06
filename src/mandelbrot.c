@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:51:37 by mratke            #+#    #+#             */
-/*   Updated: 2025/07/06 07:35:47 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 09:10:19 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../inc/fractol.h"
 
 t_fractal	mandelbrot_init(void)
 {

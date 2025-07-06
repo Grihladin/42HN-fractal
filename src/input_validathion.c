@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:33:16 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/09 19:44:55 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 09:10:12 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../inc/fractol.h"
 
 static int	ft_atoi(const char *str)
 {

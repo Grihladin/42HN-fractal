@@ -3,7 +3,7 @@ CC = cc
 NAME = fract-ol
 
 CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto -funroll-loops -pthread
-INCLUDE = -Iinclude -IMLX42/include -Ift_printf_submodule -Iget_next_line_submodule
+INCLUDE = -Iinc -IMLX42/include -Ift_printf_submodule -Iget_next_line_submodule
 FT_PRINTF_DIR = ft_printf_submodule
 FT_PRINTF = $(FT_PRINTF_DIR)/ft_printf.a
 MLX42_DIR = MLX42
@@ -15,7 +15,7 @@ BREW_EXISTS := $(shell command -v brew 2> /dev/null)
 CMAKE_EXISTS := $(shell brew list cmake 2> /dev/null)
 GLFW_EXISTS := $(shell brew list glfw 2> /dev/null)
 GET_NEXT_LINE_DIR = get_next_line_submodule
-SRC_DIR = source
+SRC_DIR = src
 SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/mlx_fts.c \
 	$(SRC_DIR)/mandelbrot.c \
@@ -25,7 +25,7 @@ SRC = $(SRC_DIR)/main.c \
 	$(SRC_DIR)/presets.c \
 	$(GET_NEXT_LINE_DIR)/get_next_line_utils.c \
 	$(GET_NEXT_LINE_DIR)/get_next_line.c
-OBJ_DIR = objects
+OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Rules

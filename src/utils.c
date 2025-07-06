@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:08:04 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/10 21:28:11 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 09:10:31 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../inc/fractol.h"
 
 t_atoi	init_atoi_v(void)
 {

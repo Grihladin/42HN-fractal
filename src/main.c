@@ -6,11 +6,11 @@
 /*   By: mratke <mratke@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 20:52:55 by mratke            #+#    #+#             */
-/*   Updated: 2024/12/10 21:36:14 by mratke           ###   ########.fr       */
+/*   Updated: 2025/07/06 09:10:05 by mratke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../inc/fractol.h"
 
 int	main(int argc, char **argv)
 {
