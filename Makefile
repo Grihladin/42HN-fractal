@@ -1,6 +1,7 @@
 # Variables
 CC = cc
 NAME = fract-ol
+
 CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -ffast-math -flto -funroll-loops -pthread
 INCLUDE = -Iinclude -IMLX42/include -Ift_printf_submodule -Iget_next_line_submodule
 FT_PRINTF_DIR = ft_printf_submodule
@@ -27,8 +28,25 @@ SRC = $(SRC_DIR)/main.c \
 OBJ_DIR = objects
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-# Dependency checking and installation
-check-and-install-deps:
+# Rules
+all: $(NAME)
+
+# Default rule
+$(NAME): $(OBJ) $(FT_PRINTF) $(MLX42_LIB)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(MLX42_LIB) $(INCLUDE) $(GLFW_LIB) -framework Cocoa -framework OpenGL -framework IOKit
+	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(FT_PRINTF):
+	@$(MAKE) -C $(FT_PRINTF_DIR)
+
+$(MLX42_LIB):
 	@echo "🔍 Checking dependencies..."
 ifndef BREW_EXISTS
 	@echo "❌ Error: Homebrew not found!"
@@ -45,37 +63,18 @@ ifndef CMAKE_EXISTS
 	@brew install cmake
 endif
 	@echo "✅ All dependencies ready!"
-
-# Rules
-all: $(NAME)
-
-$(NAME): check-and-install-deps $(OBJ) $(FT_PRINTF) $(MLX42_LIB)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FT_PRINTF) $(MLX42_LIB) $(INCLUDE) $(GLFW_LIB) -framework Cocoa -framework OpenGL -framework IOKit
-	@echo "\033[0;32m🎉 $(NAME) built successfully!\033[0m"
-
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(FT_PRINTF):
-	$(MAKE) -C $(FT_PRINTF_DIR)
-
-$(MLX42_LIB): check-and-install-deps
 	@echo "🔨 Building MLX42..."
 	@cd $(MLX42_DIR) && cmake -B build && cmake --build build
 
 clean:
-	rm -rf $(OBJ_DIR)
-	$(MAKE) -C $(FT_PRINTF_DIR) clean
-	rm -rf $(MLX42_DIR)/build
+	@rm -rf $(OBJ_DIR)
+	@$(MAKE) -C $(FT_PRINTF_DIR) clean
+	@rm -rf $(MLX42_DIR)/build
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C $(FT_PRINTF_DIR) fclean
+	@rm -f $(NAME)
+	@$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re check-and-install-deps
+.PHONY: all clean fclean re
